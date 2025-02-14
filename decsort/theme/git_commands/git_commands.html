@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="git_commands.css">
+    <link rel="icon" type="image/x-icon" href="../../logo_pic.png">
+    <title>команды git</title>
+    <meta name="description" content="команды git: самые важные команды git, работа c git">
+</head>
+<body>
+
+
+ <div class="header">
+
+     <div class="logo">
+        <a href="../../index.html">
+        <img src="../../logo.png" alt="logo" class="img_logo">
+        </a>
+     </div>
+    <h3>- заметки</h3>
+     
+</div>
+   
+
+
+<div class="content">
+
+   <div class="theme">
+        <div class="h1">
+            <h1>Темы:</h1>
+        </div>
+         
+        
+
+      <a href="../git_commands/git_commands.html" class="theme1">
+          <div>
+              <p>команды git</p>
+          </div>
+      </a>
+
+      <a href="../composer/composer.html" class="theme1">
+          <div>
+              <p>composer</p>
+          </div>
+      </a>
+      <a href="../sql_conspect/sql_conspect.html" class="theme1">
+          <div>
+              <p>sql_конспект</p>
+          </div>
+      </a>
+      <a href="../domen/domen.html" class="theme1">
+          <div>
+              <p>домены</p>
+          </div>
+      </a>
+      
+
+      <div class="dropdown">
+          <button class="dropbtn">ubuntu</button>
+          <div class="dropdown-content">
+              <a href="../UBUNTU/clean_ubuntu/clean_ubuntu.html">чистка системы</a>
+              <a href="../UBUNTU/ubuntu_commands/ubuntu_commands.html">нужные команды</a>
+          </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">PHP</button>
+        <div class="dropdown-content">
+            <a href="../PHP/ph_and_pv_theme/ph_and_pv.html">password_hash и password_verify</a>
+        </div>
+    </div>
+   </div>
+    <div>
+        <h2>команды git</h2>
+    </div>
+
+    <div class="text">
+            <p><span class="red">инициализация репозитория: </span><br>
+              необходимо зайти в папку проекта и набрать команду<br>
+             git init
+            </p>
+
+            <p><span class="red">добавление файлов в индекс: </span><br>
+            файл untracked(неотслеживаемый) ->  git add -> файл проиндексирован
+            </p>
+            <p class="abz">
+              # добавляем в индекс один файл <br>
+                git add file_name
+            </p>
+            <p class="abz">
+              # добавляем в индекс несколько файлов <br>
+                git add file_name_1 file_name_2 file_name_3
+            </p>
+            <p class="abz">
+              # добавляем в индекс все изменённые файлы <br> 
+                git add .
+            </p>
+            <p><span class="red">проверка статуса репозитория:</span> <br>
+            git status  
+            </p>
+
+            <p><span class="red">добавление файла в репозиторий:</span> <br>
+            git commit -m "Commit message"
+            </p>
+            <p><span class="red">отправка изменений в удаленный репозиторий:</span></p>
+            <p class="abz">
+              # команда для первой загрузки изменений в удалённый репозиторий: текущая ветка будет связана с веткой main в удалённом <br>
+              репозитории origin <br>
+                git push -u origin main <br>
+            </p>
+            <p class="abz">
+              # команда для второй и последующих загрузок изменений в удалённый репозиторий <br>
+                git push
+            </p>
+            <p><span class="red">просмотр журнала коммитов:</span> <br>
+            git log - происходит в обратном порядке сначала новый потом старые.
+            </p>
+            <p class="abz">
+             # информация о третьем сделанном коммите <br>
+               commit 3f6f9e1f58e30e0d3a0d0ab764c0b30a5b621d4a   # Хеш первого коммита <br>
+               Author: John Doe <johndoe@example.com>   # Автор первого коммита <br>
+               Date:   Thu Apr 21 10:26:52 2024 +0300   # Дата первого коммита <br>
+               Update README.md   # Сообщение первого коммита <br>
+            </p>
+            <p><span class="red">просмотр информация по коммиту:</span> <br>
+            git show хештег коммита
+            </p>
+       
+            <p class="abz">
+             # метаданные <br>
+               commit abc12345  # Хеш коммита <br>
+               Author: John Doe <johndoe@example.com>  # Автор коммита <br>
+               Date:   Thu Apr 21 10:26:52 2024 +0300  # Дата и время коммита <br>
+               Update README.md  # Сообщение коммита <br>
+            </p>
+            <p class="abz"> 
+             # список изменений в файле README.md <br>
+               diff --git a/README.md b/README.md <br>
+               index abcdef1..1234567 100644 <br>
+               --- a/README.md <br>
+               +++ b/README.md <br>
+               @@ -1,3 +1,3 @@ <br>
+               -# My Project  # Старое содержимое строки <br>
+               +# My Awesome Project  # Новое содержимое строк <br>
+            </p>
+
+            <p><span class="red">просмотр изменений до коммита:</span></p>
+               <p class="abz">
+               # смотрим разницу между последним коммитом и текущим состоянием репозитория <br>
+                 git diff
+                </p>
+                <p class="abz">
+               # разница между последним коммитом и текущим состоянием файла <br>
+                 git diff file_name
+                </p>
+                <p class="abz">
+               # разница между последним коммитом и коммитом с указанным хешем <br>
+                 git diff commit_hash
+                </p>
+                <p class="abz">
+               # разница между последним коммитом и отслеживаемым состоянием репозитория <br>
+                 git diff --staged
+                </p>
+                <p><span class="red">отмена изменений, возвращение файла к состоянию последнего коммита. Она отменяет все изменения, если файл не перенесен в индекс:</span></p>
+               <p class="abz">
+               # вернуть неотслеживаемый файл к состоянию последнего коммита <br>
+                 git restore file_name
+                </p>
+                <p class="abz">
+               # вернуть все файлы из индекса к состоянию последнего коммита <br>
+                 git restore --staged 
+                </p>
+                <p class="abz">
+               # вернуть указанный файл из индекса к состоянию последнего коммита <br>
+                 git restore --staged file_name
+                </p>
+                 
+               <p><span class="red">удаление файлов из индекса:</span></p>
+               <p class="abz"># удалить файл из индекса и рабочей директории <br>
+                 git rm file_name
+                </p>
+                <p class="abz">
+               # удалить файл из индекса и оставить в папке на компьютере <br>
+                 git rm --cached file_name
+                </p>
+            <p><span class="red">откат коммита:</span></p>
+            <p class="abz">
+               # откатываемся и переводим последующие коммиты в индекс <br>
+                 git reset --soft commit_hash
+            </p>
+            <p class="abz">
+               # откатываемся и переводим последующие коммиты в неотслеживаемую зону <br>
+                 git reset --mixed commit_hash
+            </p>
+            <p class="abz">
+               # откатываемся и удаляем все последующие коммиты <br>
+                 git reset --hard commit_hash
+            </p>
+                 
+<p><span class="red">если ты поменяла файл на удаленном репозитории например файл README и теперь не можешь отправить с локального на удаленный репозиторий изменения то просто воспользуйся командой: </span><br>
+git pull --rebase
+</p>
+    </div>
+
+    
+   
+</div>
+
+
+</body>
+</html>
+

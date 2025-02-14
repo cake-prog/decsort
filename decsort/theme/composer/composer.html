@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="composer.css">
+    <link rel="icon" type="image/x-icon" href="../../logo_pic.png">
+    <title>composer</title>
+    <meta name="description" content="composer(установка, запуск, обновление, установка пакетов, удаление пакетов)">
+</head>
+<body>
+
+
+ <div class="header">
+
+     <div class="logo">
+        <a href="../../index.html">
+        <img src="../../logo.png" alt="logo" class="img_logo">
+        </a>
+     </div>
+    <h3>- заметки</h3>
+     
+</div>
+   
+
+
+<div class="content">
+
+   <div class="theme">
+        <div class="h1">
+            <h1>Темы:</h1>
+        </div>
+         
+        
+
+        <a href="../git_commands/git_commands.html" class="theme1">
+            <div>
+                <p>команды git</p>
+            </div>
+        </a>
+
+        <a href="../composer/composer.html" class="theme1">
+            <div>
+                <p>composer</p>
+            </div>
+        </a>
+        <a href="../sql_conspect/sql_conspect.html" class="theme1">
+            <div>
+                <p>sql_конспект</p>
+            </div>
+        </a>
+        <a href="../domen/domen.html" class="theme1">
+            <div>
+                <p>домены</p>
+            </div>
+        </a>
+
+        <div class="dropdown">
+            <button class="dropbtn">ubuntu</button>
+            <div class="dropdown-content">
+                <a href="../UBUNTU/clean_ubuntu/clean_ubuntu.html">чистка системы</a>
+                <a href="../UBUNTU/ubuntu_commands/ubuntu_commands.html">нужные команды</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">PHP</button>
+            <div class="dropdown-content">
+                <a href="../PHP/ph_and_pv_theme/ph_and_pv.html">password_hash и password_verify</a>
+            </div>
+        </div>
+   </div>
+    <div>
+        <h2>composer</h2>
+    </div>
+
+    <div class="text">
+        <p><span class="red">composer</span> - менеджер зависимостей для php</p>
+
+        <p><span class="red">установка composer:</span> <br>
+        sudo apt update</p>
+        <p>
+        <span class="red">установка php:</span> <br>
+        sudo apt install php 
+        </p>
+        <p>
+        <span class="red">проверка установки:</span> <br>
+        php -v
+        </p>
+
+<p><span class="red">установка установщика:</span> <br>
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"</p>
+
+<p>
+<span class="red">локальная установка:</span> <br>
+php composer-setup.php
+</p>
+
+<p>
+<span class="red">глобальная установка(это позволит диспетчеру зависимостей запускаться в любом месте системы без указания полного пути):</span> <br>
+php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+</p>
+<p>
+<span class="red">удаление инсталлятора:</span> <br>
+php -r "unlink('composer-setup.php');"
+</p>
+<p>
+<span class="red">запуск:</span> <br>
+composer
+</p>
+<p>
+<span class="red">обновление пакетов(!!!ОПАСНО ИСПОЛЬЗОВАТЬ БЕЗ ТЕСТИРОВАНИЯ):</span> 
+composer update
+</p>
+
+<p><span class="red">РАБОТА С COMPOSER:</span></p>
+
+<p><span class="red">пр-р: необходимо установить пакет для работы с арифметикой в папку с проектом progect</span></p>
+
+<p>1)найти пайти нужный пакет на сайте https://packagist.org у нас это brick/math <br>
+2)переходим в папку проекта <br>
+/opt/lampp/htdocs/progect <br>
+</p>
+
+<p><span class="red">Теперь нам нужно установить наш пакет brick/math чтобы использовать его в PHP-скрипте.</span> <br>
+composer require brick/math</p>
+
+<p><span class="red">теперь проверим файлы командой ls -l:</span></p>
+
+<p>итого 12 <br>
+-rw-rw-r-- 1 lada lada   59 дек  4 17:16 composer.json <br>
+-rw-rw-r-- 1 lada lada 2575 дек  4 17:15 composer.lock <br>
+drwxrwxr-x 4 lada lada 4096 дек  4 17:16 vendor <br>
+</p>
+
+<p><span class="red">vendor</span> - каталог, где хранятся зависимости проекта. <br>
+<span class="red">composer.lock</span> - более подробная информация об установленных пакетах чем composer.json.(автор, лицензии, список зависимотей для корект. работы и т.д.) <br>
+<span class="red">composer.json</span> - файл где хранятся все установленные пакеты и их версии <br>
+</p>
+
+<p>
+пр-р: <br>
+<br>
+{<br>
+    "require": { <br>
+        "brick/math": "^0.12.1" <br>
+    } <br>
+} <br>
+</p>
+
+<p><span class="red">чтобы пользоваться пакетами в php скриптах необходимо прописать в начале файл автозагрузчик:</span> <br>
+require __DIR__ . '/vendor/autoload.php';</p>
+
+
+<p><span class="red">УДАЛЕНИЕ ПАКЕТОВ:</span> <br>
+composer remove brick/math</p>
+
+<p>файлы и каталоги останутся, но composer.json: <br>
+{ <br>
+}  <br>
+пустой
+</p>
+    </div>
+
+
+</body>
+</html>

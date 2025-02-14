@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*header*/
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    background-color: rgb(255, 255, 255);
+
+}
+
+.img_logo{
+    max-width: 100%; 
+    height: auto;
+    border: 0.1 solid rgb(0, 0, 0);
+}
+.logo{
+    width: 150px;
+    border: 0.1px solid rgb(0, 0, 0);
+}
+
+h3{
+    margin-top: 10px;
+    font-weight: 200;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+/*NAV*/
+.nav{
+    display: flex;
+    flex-direction: row;
+    
+}
+.h1{
+
+    width: 10%;
+    height: 10%;
+    color: rgb(0, 0, 0);
+}
+.theme{
+    display: flex;
+    flex-direction: row;
+}
+@media(max-width: 1100px){
+    .theme{
+        display: flex;
+        flex-direction: column;
+    }
+    .theme1{
+        width: 150px;
+    }
+    .code{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(0, 0, 0);
+        width: 50%;
+        margin-left: 30%;
+    }
+    .image-back{
+        width: 30px;
+    }
+    .alg1{
+        margin-left: 0;
+        width: 100%;
+    }
+    
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.theme1{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 8px 10px 10px 15px;
+
+}
+.code{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(0, 0, 0);
+    width: 50%;
+    margin-left: 30%;
+    padding-bottom: 1%;
+    word-wrap: break-word;
+    background-color: white;
+    
+    
+}
+
+.code>div>p{
+    margin-top: 10px;
+    padding-left: 10px;
+}
+/*color*/
+.blue{
+    color:rgb(0, 0, 185);
+}
+.red{
+    color: rgb(172, 0, 0);
+}
+.yellow{
+    color: rgb(133, 133, 12);
+}
+.green{
+    color: rgb(0, 82, 0);
+}
+.purple{
+    color: blueviolet;
+}
+.light_blue{
+    color: rgb(70, 133, 216);
+}
+
+
+
+.image-back{
+    border: 1px solid black;
+}
+.image-back>img{
+    width: 30px;
+    padding-top: 7px;
+}
+
+h2{
+    margin-left: 40%;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+
+}
+
+.text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+    margin-left: 20%;
+    color: rgb(0, 0, 0);
+}
+
+.p{
+    margin-top: 30px;
+
+}
+
+
+.alg1{
+ width: 40%;
+ border: 1px solid black;
+ margin-left: 35%;
+}/*
+@media(max-width: 1100px){
+    .alg1{
+        margin-left: 10%;
+        width: 370px;
+    }
+    
+}*/
+
+@media(max-width: 700px){
+    .alg1{
+        margin-left: 10%;
+        width: 370px;
+    }
+    .code{
+        margin-left: 0;
+        width: 445px;
+    }
+    h2{
+        margin-left: 20%;
+        
+    }
+    
+}
+@media(max-width: 400px){
+    .alg1{
+        margin-left: 0px;
+        width: 370px;
+    }
+    h2{
+        margin-left: 5%;
+        
+    }
+    .text{
+        margin-left: 5%;
+        width: 360px;
+    }
+    .code{
+        margin-left: 0;
+        width: 445px;
+    }
+    
+}
+.name{
+    padding-top: 30px;
+}
+
+/*ВЫПАДАЮЩИЙ СПИСОК*/
+
+/* Кнопка выпадающего списка */
+.dropbtn {
+    padding: 8px 10px 10px 15px;
+    border: 0.1px solid black;
+    font-size: 16px;
+    height: 100%;
+  }
+  
+  /* Контейнер <div> - необходим для размещения выпадающего содержимого */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Выпадающее содержимое (скрыто по умолчанию) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    border: 0.1px solid black;
+    z-index: 1;
+  }
+  
+  /* Ссылки внутри выпадающего списка */
+  .dropdown-content a {
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    border: 0.1px solid black;
+  }
+  
+  /* Изменение цвета выпадающих ссылок при наведении курсора */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Показать выпадающее меню при наведении курсора */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  

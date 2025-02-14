@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
+
+/*header*/
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    color: rgb(0, 0, 0);
+
+}
+
+.img_logo{
+    max-width: 100%; 
+    height: auto;
+}
+.logo{
+    width: 150px;
+    border: 0.1px solid rgb(0, 0, 0);
+}
+
+h3{
+    margin-top: 10px;
+    font-weight: 200;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+/*NAV*/
+.nav{
+    display: flex;
+    flex-direction: row;
+}
+.h1{
+    color: rgb(0, 0, 0);
+    width: 10%;
+    height: 10%;
+}
+.theme{
+    display: flex;
+    flex-direction: row;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.theme1{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 8px 10px 10px 15px;
+
+}
+/*color*/
+
+.red{
+    color: rgb(172, 0, 0);
+}
+
+
+
+
+.image-back{
+    border: 1px solid black;
+}
+.image-back>img{
+    width: 30px;
+    padding-top: 7px;
+}
+
+h2{
+    margin-left: 35%;
+    margin-top: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.text{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+    margin-left: 20%;
+    color: rgb(0, 0, 0);
+    
+}
+
+.p{
+    margin-top: 30px;
+
+}
+.text>p{
+    margin-top: 30px;
+}
+.abz{
+    margin-left: 100px;
+}
+@media(max-width: 1030px){
+    .theme{
+        display: flex;
+        flex-direction: column;
+    }
+    .theme1{
+        width: 150px;
+    }
+    .image-back{
+        width: 30px;
+    }
+    
+}
+
+
+
+@media(max-width: 700px){
+
+    h2{
+        margin-left: 20%;
+        
+    }
+    .abz{
+        margin-left: 0px;
+    }
+
+    
+    
+}
+@media(max-width: 400px){
+
+    h2{
+        margin-left: 0;
+        
+    }
+    .text{
+        margin-left: 5%;
+        width: 360px;
+    }
+    .abz{
+        margin-left: 0px;
+    }
+    
+    
+}
+
+
+
+/*ВЫПАДАЮЩИЙ СПИСОК*/
+
+/* Кнопка выпадающего списка */
+.dropbtn {
+    padding: 8px 10px 10px 15px;
+    border: 0.1px solid black;
+    font-size: 16px;
+    height: 100%;
+  }
+  
+  /* Контейнер <div> - необходим для размещения выпадающего содержимого */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Выпадающее содержимое (скрыто по умолчанию) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    border: 0.1px solid black;
+    z-index: 1;
+  }
+  
+  /* Ссылки внутри выпадающего списка */
+  .dropdown-content a {
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    border: 0.1px solid black;
+  }
+  
+  /* Изменение цвета выпадающих ссылок при наведении курсора */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Показать выпадающее меню при наведении курсора */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  

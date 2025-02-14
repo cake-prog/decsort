@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ph_and_pv.css">
+    <link rel="icon" type="image/x-icon" href="../../../logo_pic.png">
+    <title>password_hash  и password_verify</title>
+    <meta name="description" content="функция php для хеширования строки password_hash и функция для проверки пароля password_verify. Значение соли. password_get_info">
+</head>
+<body>
+
+
+ <div class="header">
+
+     <div class="logo">
+        <a href="../../../index.html">
+        <img src="../../../logo.png" alt="logo" class="img_logo">
+        </a>
+     </div>
+    <h3>- заметки</h3>
+     
+</div>
+   
+
+
+<div class="content">
+
+   <div class="theme">
+        <div class="h1">
+            <h1>Темы:</h1>
+        </div>
+         
+
+        <a href="../../git_commands/git_commands.html" class="theme1">
+            <div>
+                <p>команды git</p>
+            </div>
+        </a>
+
+        <a href="../../composer/composer.html" class="theme1">
+            <div>
+                <p>composer</p>
+            </div>
+        </a>
+        <a href="../../sql_conspect/sql_conspect.html" class="theme1">
+            <div>
+                <p>sql_конспект</p>
+            </div>
+        </a>
+        <a href="../../domen/domen.html" class="theme1">
+            <div>
+                <p>домены</p>
+            </div>
+        </a>
+
+        <div class="dropdown">
+            <button class="dropbtn">ubuntu</button>
+            <div class="dropdown-content">
+                <a href="../../UBUNTU/clean_ubuntu/clean_ubuntu.html">чистка системы</a>
+                <a href="../../UBUNTU/ubuntu_commands/ubuntu_commands.html">нужные команды</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">PHP</button>
+            <div class="dropdown-content">
+                <a href="ph_and_pv.html">password_hash и password_verify</a>
+            </div>
+        </div>
+   </div>
+    <div>
+        <h2>password_hash  и password_verify</h2>
+    </div>
+
+    <div class="text">
+        <p>
+            функция <em>password_hash()</em> создаёт хеш пароля через необратимые алгоритмы хеширования. по сранению с устаревшей функцией <em>md5</em>, при повторной генирации одного и того же пароля ф-ция выдает разный результат,
+             поэтому для проверки пароля необходимо использовать функцию <em>password_verify</em>.
+        </p>
+    </div>
+
+    <div class="code">
+
+        <div class="p">
+        <p><span class="blue">$password</span> = <span class="red">'sffdkf'</span>;</p>
+        <p><span class="blue">$password2</span> = <span class="red">'sdfdsdf'</span>;</p>
+        </div>
+        
+        <div class="p">
+        <p><span class="blue">$hash</span> = <span class="yellow">password_hash</span><span class="blue">($password</span>, PASSWORD_DEFAULT<span class="blue">)</span>; <span class="green">//- алгоритм bcrypt</span></p>
+        <p><span class="yellow">echo</span><span class="blue"> $hash</span> . <span class="red">"\n"</span>;</p>
+        </div>
+
+        <div class="p">
+        <p><span class="blue">$hash</span> = <span class="yellow">password_hash</span><span class="blue">($password</span>, PASSWORD_BCRYPT<span class="blue">)</span>; <span class="green">//- алгоритм CRYPT_BLOWFISH</span></p>
+        <p><span class="yellow">echo</span><span class="blue"> $hash</span> . <span class="red">"\n"</span>;</p>
+        </div>
+
+        <div class="p">
+        <p><span class="green">//$hash = password_hash($password, PASSWORD_ARGON2I);- алгоритм Argon2i, доступен только с поддержкой Argon2.</p></span>
+        <p><span class="green">//$hash = password_hash($password, PASSWORD_ARGON2ID);- алгоритм Argon2id, доступен только с поддержкой Argon2.</p></span>
+        </div>
+
+        <div class="p">
+        <p><span class="purple">if</span> <span class="blue">(</span><span class="yellow">password_verify</span><span class="green">(</span><span class="blue">$password</span>, <span class="blue">$hash</span><span class="green">)</span><span class="blue">) {</span></p>
+        <p><span class="yellow">echo</span><span class="red"> "Успех!"</span> . <span class="red"> "\n"</span>;</p>
+        <p> <span class="blue">}</span> <span class="purple">else</span> <span class="blue"> {</span></p>
+        <p><span class="yellow">echo</span><span class="red"> "Провал!"</span> . <span class="red"> "\n"</span>;</p>
+        <p><span class="blue">}</span></p>
+        </div>
+
+        <div class="p">
+        <p><span class="green">//MD5 дает одинаковые пароли при хешировании а password_hash разные</span></p>
+        </div>
+
+        <div class="p">
+        <p><span class="blue">$hash_md5_1</span> = <span class="yellow">md5</span><span class="blue">($password)</span>;</p>
+        <p><span class="blue">$hash_md5_2</span> = <span class="yellow">md5</span><span class="blue">($password)</span>;</p>
+        </div>
+
+        <div class="p">
+        <p><span class="yellow">echo</span><span class="blue"> $hash_md5_1</span> . <span class="red"> "\n"</span>;</p>
+        <p><span class="yellow">echo</span><span class="blue"> $hash_md5_2</span> . <span class="red"> "\n"</span>;</p>
+        </div>
+    </div>
+
+
+    <div class="text">
+        <p>
+            вывод:
+        </p>
+    </div>
+
+    <div class="code">
+
+        <div class="p">
+            
+            <p><span class="light_blue">$2y$10$DmzgXW1RYP4qfDWfF0ksRuEW9pFxPiXabR9/mMLia.uyl/w18.53S</span></p>
+            </div>
+            <div class="p">
+            <p><span class="light_blue">$2y$10$j5q5QkTbECQUwWGYI1HS6OHoFdslbKMkA3vS19AKzvpeB.xEoRibu</span></p>
+            </div>
+            <div class="p">
+            <p><span class="light_blue">Успех!</span></p>
+            </div>
+            <div class="p">
+            <p><span class="light_blue">c9694908a6fed06db7146ed16cb70ecd</span></p>
+            </div>
+            <div class="p">
+            <p><span class="light_blue">c9694908a6fed06db7146ed16cb70ecd</span></p>
+            
+        </div>
+    </div>
+
+    <div class="text">
+        <p>
+            что из себя представляет пароль после хеширования функцией <em>password_hash</em>?
+        </p>
+        <p>все конечно зависит от алгоритма хеширования.</p>
+        <p class="name">bcrypt и CRYPT_BLOWFISH</p>
+    </div>
+    <img src="2025_01_19_036_Kleki.png" alt="bcrypt и CRYPT_BLOWFISH" class="alg1">
+
+    <div class="text">
+        
+        <p class="name">Argon2i</p>
+    </div>
+    <img src="2025_01_19_04s_Kleki.png" alt="Argon2i" class="alg1">
+
+    <div class="text">
+        
+        <p class="name">Argon2id</p>
+        <p>почти тоже самое, что и в Argon2i.</p>
+    </div>
+    <h2>что такое соль? все просто</h2>
+    <div class="text">
+        <div class="p">
+            <p>соль - это случайный набор символов, который добавляется в пароли. Она бывает статической(когда мы сами приписываем всем паролям одну соль):</p>
+            <p>пр-р:</p>
+        </div>
+    </div>
+    <div class="code">
+        <p>
+        <span class="blue">$password</span> =<span class="yellow"> md5</span><span class="blue">($password</span> . <span class="red">"MyUniqueSault"</span><span class="blue">)</span>;
+        </p>
+    </div>
+    <div class="text">
+        <p>бывает динамической(всегда лучше использовать ее):</p>
+    </div>
+
+    <div class="code">
+        <div class="p">
+        <p><span class="blue">$sault</span> = <span class="yellow">GenerateRandomString</span><span class="blue">()</span>;<br><span class="blue">$password</span> = <span class="yellow">md5</span><span class="blue">($password . $sault)</span>; <span class="green">//- с помощью функции GenerateRandomString()</span>
+        </p>
+    </div>
+    <div class="p">
+        <p><span class="blue">$hash</span> = <span class="yellow">password_hash</span><span class="blue">($password</span>, PASSWORD_DEFAULT<span class="blue">)</span>; <span class="green">//- с помощью password_hash</span></p>
+    </div>
+    </div>
+
+    <div>
+        <h2>password_get_info</h2>
+    </div>
+
+    <div class="text">
+        <p>
+            получить информации о хешированной Argon2id можно с помощью функции <em>password_get_info</em>
+        </p>
+        
+        
+    </div>
+
+    <div class="code">
+        <div class="p">
+            <p> <span class="yellow">var_dump</span><span class="blue">(</span><span class="yellow">password_get_info</span><span class="green">(</span><span class="red">'$argon2i$v=19$m=65536,t=4,p=1$VUR1Yk05ZWhZNGtUQzVGdg$XhPprK3eHEeaC1c33M86eoS/CG1eker2Eg/MvtGc0E4'</span><span class="green">)</span><span class="blue">)</span>;</p>
+        </div>
+        <div class="p"> 
+            <p>  <span class="light_blue">array(3) {
+                <br>
+                <span style="margin-left: 30px;">["algo"]=></span>
+                <br>
+                <span style="margin-left: 30px;">string(7) "argon2i"</span>
+                <br>
+                <span style="margin-left: 30px;">["algoName"]=></span>
+                <br>
+                <span style="margin-left: 30px;">string(7) "argon2i"</span>
+                <br>
+                <span style="margin-left: 30px;">["options"]=></span>
+                <br>
+                <span style="margin-left: 30px;">array(3) {</span>
+                    <br>
+                    <span style="margin-left: 60px;">["memory_cost"]=></span>
+                  <br>
+                  <span style="margin-left: 60px;">int(65536)</span>
+                  <br>
+                  <span style="margin-left: 60px;">["time_cost"]=></span>
+                  <br>
+                  <span style="margin-left: 60px;">int(4)</span>
+                  <br>
+                  <span style="margin-left: 60px;">["threads"]=></span>
+                  <br>
+                  <span style="margin-left: 60px;">int(1)</span>
+                  <br>
+                  <span style="margin-left: 60px;">}</span>
+                <br>
+              } </span></p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sql_conspect.css">
+    <link rel="icon" type="image/x-icon" href="../../logo_pic.png">
+    <title>sql_конспект</title>
+    <meta name="description" content="sql комынды">
+</head>
+
+<body>
+
+
+    <div class="header">
+
+        <div class="logo">
+            <a href="../../index.html">
+                <img src="../../logo.png" alt="logo" class="img_logo">
+            </a>
+        </div>
+
+        <h3>- заметки</h3>
+
+    </div>
+
+
+
+    <div class="content">
+
+        <div class="theme">
+            <div class="h1">
+                <h1>Темы:</h1>
+            </div>
+
+    
+            <a href="../git_commands/git_commands.html" class="theme1">
+                <div>
+                    <p>команды git</p>
+                </div>
+            </a>
+    
+            <a href="../composer/composer.html" class="theme1">
+                <div>
+                    <p>composer</p>
+                </div>
+            </a>
+            <a href="../sql_conspect/sql_conspect.html" class="theme1">
+                <div>
+                    <p>sql_конспект</p>
+                </div>
+            </a>
+            <a href="../domen/domen.html" class="theme1">
+                <div>
+                    <p>домены</p>
+                </div>
+            </a>
+    
+            <div class="dropdown">
+                <button class="dropbtn">ubuntu</button>
+                <div class="dropdown-content">
+                    <a href="../UBUNTU/clean_ubuntu/clean_ubuntu.html">чистка системы</a>
+                    <a href="../UBUNTU/ubuntu_commands/ubuntu_commands.html">нужные команды</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">PHP</button>
+                <div class="dropdown-content">
+                    <a href="../PHP/ph_and_pv_theme/ph_and_pv.html">password_hash и password_verify</a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>sql_конспект</h2>
+        </div>
+
+        <div class="text">
+            <p>
+                SELECT поле_1, <br>
+            <div class="margin_left_6">поле_2,</div>
+            <div class="margin_left_6">поле_3,</div>
+            <div class="margin_left_6">...</div>
+            FROM таблица
+            </p>
+            <p> <span class="red">LIMIT</span> сколько_записей_выгрузить <span class="red">OFFSET</span>
+                сколько_записей_пропустить;</p>
+
+
+            <p><span class="red">поменять тип данных при выгрузке:</span> <br>
+                SELECT CAST(поле AS тип данных) <br>
+                FROM таблица; <br>
+            </p>
+
+
+            <p><span class="red">оператор WHERE.</span> <br>
+                SELECT name, // поля для выгрузки <br>
+            <div class="margin_left_6">user_id <br>
+                ... <br></div>
+            FROM users // таблица, из которой выгружают данные <br>
+            WHERE user_id = 5; // условие для среза данных <br>
+            </p>
+
+
+            <p><span class="red">ЛОГИЧЕСКИЕ ОПЕРАТОРЫ:</span></p>
+
+            <div class="margin_left_10">
+                <p><span class="red">AND:</span> <br>
+                    WHERE country = 'Бразилия' <br>
+                    AND age > 43; <br>
+                </p>
+                <p>
+                    <span class="red">OR:</span> <br>
+                    WHERE country = 'Бразилия' <br>
+                    OR country = 'Россия'; <br>
+                </p>
+                <p>
+                    <span class="red">NOT:</span> <br>
+                    WHERE NOT country = 'Бразилия' <br>
+                    AND NOT country = 'Россия'; <br>
+                    // в список войдут все страны кроме Бразилии и России <br>
+                </p>
+            </div>
+            <p><span class="red">приоритет операторов:</span> NOT -> AND -> OR</p>
+
+
+            <p><span class="red">оператор IN:</span></p>
+            <div class="margin_left_10">
+                SELECT name, <br>
+                <div class="margin_left_6">user_id</div>
+                FROM users <br>
+                WHERE country (можно вставить NOT) IN ('США', <br>
+                OR country = 'Чехия', <br>
+                OR country = 'Китай', <br>
+                OR country = 'Япония', <br>
+                OR country = 'Египет',<br>
+                OR country = 'Словакия'); <br>
+            </div>
+
+            <p><span class="red">оператор LIKE:</span> </p>
+            <div class="margin_left_10">
+                SELECT * <br>
+                FROM users <br>
+                WHERE age LIKE '43'; <br>
+            </div>
+
+            <p>
+                'text%' - Значения, которые начинаются с text <br>
+                '%text' - Значения, которые заканчиваются на text <br>
+                '%text%' - Значения, в которых text занимает любую позицию <br>
+                'te%xt' - Значения, которые начинаются на te и заканчиваются на xt <br>
+            </p>
+
+            <p><span class="red">оператор BETWEEN:</span> <br>
+                WHERE ключевое слово BETWEEN начало диапазона AND конец диапазона включительно
+            </p>
+            <p>
+                <span class="red">операторы и функции для работы с датой и временем:</span> <br>
+                CURRENT_DATE вернёт текущую дату, <br>
+                CURRENT_TIME выведет текущее время, <br>
+                CURRENT_TIMESTAMP вернёт текущие дату и время. <br>
+            </p>
+            <p>
+                <span class="red">функция DATE_TRUNC</span> <br>
+                синтаксис: DATE_TRUNC('отрезок времени', поле). <br>
+                какие могут быть отрезки времени: <br>
+                <br>
+                'microseconds' — микросекунды; <br>
+                'milliseconds' — миллисекунды; <br>
+                'second' — секунда; <br>
+                'minute' — минута; <br>
+                'hour' — час; <br>
+                'day' — день; <br>
+                'week' — неделя; <br>
+                'month' — месяц; <br>
+                'quarter' — квартал; <br>
+                'year' — год; <br>
+                'decade' — десятилетие; <br>
+                'century' — век. <br>
+                такое усечение не подойдёт для случаев, когда нужно получить конкретную часть даты: год, месяц или
+                минуту. <br>
+            </p>
+            <p><span class="red">
+                    функция EXTRACT</span> <br>
+                синтаксис: EXTRACT(отрезок времени FROM поле). <br>
+
+                отрезки времени: <br>
+                <br>
+                CENTURY — век; <br>
+                DAY — день; <br>
+                DOY (от англ. day of the year) — день года, выраженный числом от 1 до 365 или 366, если год високосный;
+                <br>
+                DOW (от англ. day of the week) — день недели, выраженный числом от 0 до 6, где понедельник — 1,
+                воскресенье — 0. <br>
+                ISODOW (от англ. day of the week и ISO 8601) — день недели, выраженный числом от 1 до 7, где понедельник
+                — 1, воскресенье — 7. <br>
+                HOUR — час; <br>
+                MILLISECOND — миллисекунда; <br>
+                MINUTE — минута; <br>
+                MONTH — месяц; <br>
+                SECOND — секунда; <br>
+                QUARTER — квартал; <br>
+                WEEK — неделя в году; <br>
+                YEAR — год. <br>
+            </p>
+            <p><span class="red">!!!!Особенность функций</span> — они возвращают данные разных типов. DATE_TRUNC вернёт
+                данные типов timestamp without timezone, timestamp with timezone или interval (зависит от того, что
+                получит на вход), а EXTRACT — данные типа numeric. </p>
+
+            <p>
+                <span class="red">специальное значение NULL</span><br>
+                специальное значение NULL обозначает отсутствие данных. с NULL нельзя сравнить какое-либо значение с
+                помощью любых операторов: =, <,>, LIKE. <br>
+                    для работы со специальными значениями операторы — IS NULL и IS NOT NULL.
+                    оператор IS NULL при встрече с NULL вернёт TRUE, а оператор IS NOT NULL наоборот: вернёт TRUE, если
+                    значение не равно NULL. <br>
+                    <br>
+                    SELECT email, <br>
+                    <div class="margin_left_6">name</div>
+                    FROM users <br>
+                    WHERE email IS NULL <br>
+                    LIMIT 5; <br>
+            </p>
+
+            <p><span class="red">условная конструкция с оператором CASE</span> <br>
+
+                в поле total можно выделить категории в зависимости от суммы на счете банка например. счет меньше 5
+                долларов
+                будет «маленьким», от 5 до 10 долларов — «средним», а счет с 10 долларами и больше — «крупным».
+                <br>
+                в SQL запрос с несколькими условиями пишут с помощью оператора CASE. <br>
+                <br>
+                SELECT total, <br>
+            <div class="margin_left_6">CASE
+                <div class="margin_left_6">WHEN total < 5 THEN 'маленький' <br>
+                        WHEN total >= 5 AND total < 10 THEN 'средний' <br>
+                            WHEN total >= 10 THEN 'крупный' <br>
+                </div>
+                END <br>
+                FROM users <br>
+                LIMIT 10; <br>
+            </div>
+            <br>
+            если значение в проверяемом поле не удовлетворяет ни одному условию, результатом будет NULL.
+            <br>
+            все условия необязательно прописывать. условную конструкцию можно дополнить выражением с
+            оператором ELSE: после оператора указывают результат на случай, если ни одно условие не
+            выполнено. <br>
+            <br>
+            SELECT total, <br>
+            <div class="margin_left_6">CASE <br>
+                <div class="margin_left_6">WHEN total >= 5 AND total < 10 THEN 'средний' <br>
+                        WHEN total >= 10 THEN 'крупный' <br>
+                </div>
+                ELSE 'маленький' <br>
+                END <br>
+                FROM users <br>
+                LIMIT 10; <br>
+            </div>
+            </p>
+
+            <p><span class="red">математические операции</span><br>
+                стандартные операторы выглядят так: +, -, *, /.
+            </p>
+            <p><span class="red">МАТЕМАТИЧЕСКИЕ ФУНКЦИИ</span><br>
+            <div class="margin_left_10">
+                <p>
+                    <span class="red">ABS()</span> <br>
+                    возвращает модуль числа. <br>
+                    SELECT phone, <br>
+                    ABS(phone) <br>
+                </p>
+                <p>
+                    <span class="red">FLOOR()</span> <br>
+                    возвращает число, округлённое до целого в меньшую сторону. <br>
+                    SELECT phone, <br>
+                    FLOOR(phone) <br>
+                    21.16 -> 21 <br>
+                </p>
+                <p>
+                    <span class="red">CEILING(),</span> <br>
+                    наоборот, округляет в большую сторону. <br>
+                    SELECT phone, <br>
+                    CEILING(phone) <br>
+                    21.16 -> 22 <br>
+                </p>
+
+                <p>
+                    <span class="red">ROUND()</span> <br>
+                    округляет значение до ближайшего числа. <br>
+                    21.16 -> 21 <br>
+                    с помощью ROUND можно округлить число до определённого количества знаков после запятой. <br>
+                    SELECT ROUND(21.5595743, 2); -> 21.56 <br>
+                </p>
+                <p>
+                    <span class="red">POWER()</span> <br>
+                    возвращает число, возведённое в степень. нужную степень указывают вторым аргументом. <br>
+                    SELECT number, <br>
+                    POWER(number, 2) <br>
+                    4 -> 16 <br>
+                </p>
+                <p>
+                    <span class="red">SQRT()</span> <br>
+                    извлекает квадратный корень из числа. извлечь квадратный корень из отрицательного числа нельзя,
+                    поэтому
+                    сначала применить функцию ABS. <br>
+                    SELECT number, <br>
+                    SQRT(ABS(number)) <br>
+                    4 -> 2 <br>
+                </p>
+            </div>
+
+            <p><span class="red">АГРЕГИРУЮЩИЕ ФУНКЦИИ</span></p>
+            <p>основные агрегирующие функции в SQL: </p>
+            <div class="margin_left_10">
+                <p><span class="red">SUM()</span> возвращает сумму значений</p>
+                <p><span class="red">AVG()</span> находит среднее арифметическое</p>
+                <p><span class="red">MIN()</span> возвращает минимальное значение</p>
+                <p><span class="red">МАХ()</span> возвращает максимальное</p>
+                <p><span class="red">COUNT(*)</span> выводит количество записей в таблице, а COUNT(поле) — количество
+                    записей в поле.</p>
+            </div>
+            <p>агрегирующие функции можно сочетать с математическими, например, можно округлить среднюю сумму счета до
+                двух чисел после запятой <br>
+                SELECT ROUND(AVG(total), 2) <br>
+                FROM users; <br>
+            </p>
+            <p>!!!!если считать записи во всей таблице, пропуски будут учитываться при
+                подсчёте. если считать записи в конкретном поле, значения NULL в количество записей не войдут.</p>
+            </p>
+            <p>
+                в данных могут быть не только пропуски, но и повторы. их можно учесть с помощью ключевого слова <span
+                    class="red">DISTINCT.</span> оно возвращает уникальные значения. <br>
+                <br>
+                такой запрос выведет первые пять уникальных значений в поле country. <br>
+                SELECT DISTINCT country <br>
+                FROM users <br>
+                LIMIT 5; <br>
+                <br>
+                <span class="red">DISTINCT</span> — это не функция, которая принимает аргументы в виде названий полей.
+                если перечислить несколько полей после DISTINCT, запрос выведет все уникальные комбинации значений в
+                этих полях. <br>
+                <br>
+                SELECT DISTINCT user_id, <br>
+            <div class="margin_left_10">country</div>
+            FROM users <br>
+            LIMIT 10; <br>
+            <br>
+            2 Германия <br>
+            7 Норвегия <br>
+            10 Япония <br>
+            65 Корея <br>
+            4 Германия <br>
+            37 Япония <br>
+            7 Россия <br>
+
+            в получившейся таблице в поле country некоторые страны повторяются. дело в том, что с помощью
+            DISTINCT можно вывести именно комбинации уникальных значений: идентификаторов и стран. <br>
+            </p>
+            <p><span class="red">группировка данных</span></p>
+            <p>
+                // нужно указать поля и необходимые вычисления <br>
+                SELECT country,<br>
+                ROUND(AVG(total)) <br>
+                FROM users // не забыть таблицу <br>
+                GROUP BY country // здесь указывают поле, по которому группируют данные <br>
+                LIMIT 5; <br>
+            </p>
+            <p>
+                Россия 5 <br>
+                Китай 9 <br>
+                Греция 10 <br>
+                Япония 16 <br>
+                Франция 3 <br>
+            </p>
+            <p>без группировки: <br>
+                SELECT ROUND(AVG(total)) <br>
+                FROM users <br>
+                WHERE country = 'Россия'; <br>
+                то есть пришлось бы писать запросы на каждый город, а так мы смогли вычислить среднее значение
+                сгруппировав
+                запрос по городам. <br>
+            </p>
+            </p>
+            <p>
+                <span class="red">сортировка данных</span> <br>
+
+                данные проще анализировать отсортированными. сортировка позволит выгрузить «топовые» значения от
+                большего к меньшему или наоборот, например топ-10 самых популярных подкастов или топ-5 самых плохих
+                фильмов. <br>
+                для сортировки данных в SQL используют оператор ORDER BY. его пишут в самом конце запроса, после него
+                можно указать только оператор LIMIT. <br>
+                по умолчанию оператор ORDER BY сортирует данные от меньшего к большему. чтобы изменить порядок
+                сортировки вручную, после названия поля указывают ключевое слово <span class="red">DESC: тогда данные
+                    будут отсортированы
+                    по убыванию.</span> если указать <span class="red">ASC, данные будут отсортированы по
+                    возрастанию</span> — так же, как и по умолчанию.
+                <br>
+
+            </p>
+            <p>
+                <span class="red">оператор HAVING</span> <br>
+
+                оператор WHERE работает только с изначальной таблицей, но не с результатом агрегирующих функций. <br>
+
+                если нужно получить срез данных после группировки, используют оператор HAVING. HAVING похож на оператор
+                WHERE, но с отличием: HAVING всегда идёт после GROUP BY. <br>
+                оператор HAVING используют для того, чтобы получить срез данных после группировки. у этого оператора
+                есть несколько особенностей: <br>
+                HAVING нельзя применять без оператора GROUP BY; <br>
+                использовать HAVING без агрегирующих функций нет смысла: в таких случаях больше подойдёт WHERE. <br>
+            </p>
+            <p>
+                <span class="red">псевдонимы</span> <br>
+                чтобы назначить псевдоним, после оператора SELECT и ключевого слова указывают оператор AS и новое
+                название поля. <br>
+                SELECT EXTRACT(YEAR FROM CAST(date AS DATE)) AS user_hb_date <br>
+                это стандартный вариант в SQL, но в PostgreSQL можно задавать псевдонимы более простым способом —
+                добавить название через пробел. <br>
+                SELECT EXTRACT(YEAR FROM CAST(date AS DATE)) user_hb_date <br>
+
+                назначить псевдоним можно и для таблицы. <br>
+                FROM users AS u или FROM users u <br>
+
+                можно дополнительно указать, в какой таблице находится нужное поле. сначала указывают псевдоним таблицы,
+                а через точку — название поля. <br>
+                MIN(u.name) <br>
+
+                к псевдонимам нельзя обратиться в WHERE или HAVING, потому что в SQL операторы выполняются не в том
+                порядке, в котором их указывают в запросе. сначала данные отбираются по условию, а только потом полям
+                назначаются псевдонимы. <br>
+
+                WHERE user_hb_date BETWEEN 2014 AND 2020 ОШИБКА!!!! <br>
+
+            </p>
+
+            <p><span class="red">ОПЕРАТОРЫ JOIN</span></p>
+
+            <div class="margin_left_10">
+                <p>
+                    тип <span class="red">INNER JOIN</span> предполагает объединение по «внутренней» области, общей для
+                    двух таблиц. то есть таблица сложится по абсолютным совпадениям например ID_покупателя. таблица
+                    получается без пропусков.
+                </p>
+                <p>
+                    <span class="red">LEFT OUTER JOIN</span> — тип объединения, который предполагает, что в результат
+                    слияния войдут все записи из левой таблицы. записи из правой таблицы сохранятся только в том случае,
+                    если значения в нужном поле
+                    совпадают со значениями в левой таблице.
+                </p>
+                <p>
+                    тип <span class="red">RIGHT OUTER JOIN</span> похож на предыдущий тип объединения, только в этом
+                    случае больший приоритет у
+                    правой таблицы. оператор RIGHT OUTER JOIN предполагает, что записи из правой таблицы обязательно
+                    войдут
+                    в результат слияния. а записи из левой таблицы сохранятся только в том случае, если значения в
+                    нужном
+                    поле совпадают со значениями в правой таблице.
+                </p>
+                <p>
+                    оператор <span class="red">FULL OUTER JOIN</span> объединяет все данные из левой и правой таблиц.
+                    если не нашлось совпадения, на
+                    месте значения будет NULL.
+                </p>
+            </div>
+
+            <p>пример объединения таблиц: <br>
+
+                SELECT u.first_name, <br>
+            <div class="margin_left_6">u.last_name,</div>
+            <div class="margin_left_6">u.total <br></div>
+            FROM users AS u <br>
+            INNER JOIN film AS f ON f.name = u.name <br>
+            LIMIT 10; <br>
+            </p>
+            объединить таблицы users и film можно с помощью общего поля name. <br>
+
+            несколько присоединений: <br>
+            ... <br>
+            FROM таблица_1 <br>
+            INNER JOIN таблица_2 ON таблица_1.поле=таблица_2.поле //первое присоединение <br>
+            INNER JOIN таблица_3 ON таблица_1.поле=таблица_3.поле //второе присоединение <br>
+            ... <br>
+
+
+            <p>оператор <span class="red">FULL OUTER JOIN</span> <br>
+
+                в PostgreSQL можно объединять таблицы не только по ключам: первичным и внешним. если в таблицах можно
+                найти поля с одинаковыми названиями и похожим содержанием, объединить таблицы можно с помощью таких
+                полей. <br>
+                таблица должна содержать поля actor_id, first_name, last_name для актёра или актрисы, а также first_name
+                и last_name для пользователя. <br>
+            </p>
+            SELECT a.actor_id, <br>
+            <div class="margin_left_6">a.first_name, </div>
+            <div class="margin_left_6">a.last_name, </div>
+            <div class="margin_left_6">u.first_name, </div>
+            <div class="margin_left_6">u.last_name </div>
+            FROM actor AS a <br>
+            FULL OUTER JOIN user AS u ON a.last_name = u.last_name <br>
+            LIMIT 10; <br>
+
+            <p><span class="red">Альтернативные варианты присоединения: UNION и UNION ALL</span> </p>
+
+            <p> правила регламентируют использование операторов UNION и UNION ALL: </p>
+            <div class="margin_left_10">
+                1) извлекать поля из одной таблицы нужно в том же порядке, что и из другой. число извлекаемых полей тоже
+                должно совпадать. <br>
+                2) типы данных в полях должны соответствовать друг другу. объединить поле типа integer с полем типа
+                varchar не получится, а поля с типами integer и real — можно. <br>
+            </div>
+            <p>
+                UNION таблицы как-бы приклеиваюься одна к другой снизу
+            </p>
+            </p>
+            <p>оператор UNION устроен так, что абсолютные дубликаты в итоговую таблицу не входят: останется только одна
+                запись. оператор UNION ALL же забирает с собой все записи, даже полные дубликаты</p>
+
+            <p>с помощью UNION и UNION ALL тоже можно присоединить несколько таблиц. к запросу добавляют оператор UNION
+                или UNION ALL и указывают новый запрос.</p>
+            <p>
+                ЗАПРОС_1 <br>
+                UNION ALL <br>
+                ЗАПРОС_2 <br>
+                UNION ALL <br>
+                ЗАПРОС_3 <br>
+                UNION ALL <br>
+                .......; <br>
+            </p>
+            <p>
+                <span class="red">подзапросы во FROM</span> <br>
+                пишем подзапрос: <br>
+
+                SELECT ... <br>
+                FROM (...) AS псевдоним; <br>
+
+                !!!!! подзапросу во FROM нужно всегда назначать псевдоним, иначе произойдёт ошибка. <br>
+            </p>
+            <p>
+                <span class="red">подзапросы в WHERE</span> <br>
+
+                SELECT * <br>
+                FROM user <br>
+                WHERE user_id IN (...... ) <br>
+            </p>
+            <p><span class="red">как сочетать объединения и подзапросы</span></p>
+            <p>
+                ... <br>
+                FROM (......) LEFT OUTER JOIN (......) ON ... <br>
+                ... <br>
+            </p>
+            <p>
+                SELECT * <br>
+                FROM  ...<br>
+            <div class="margin_left_10">(SELECT ... <br>
+                FROM ... <br>
+                GROUP BY ... <br>
+                ORDER BY ... ) AS i </div>
+            LEFT OUTER JOIN <br>
+            <div class="margin_left_10">(SELECT ... <br>
+                FROM ... <br>
+                GROUP BY ...) AS c ON u.country = c.country;</div>
+            </p>
+            вместо того чтобы сначала объединять таблицы, а потом убирать лишнее, можно сформировать несколько
+            подзапросов и объединить результаты. <br>
+            </p>
+
+            <p>
+                <span class="red">общие табличные выражения</span> <br>
+                они помогают структурировать подзапросы и выносить их за пределы основного кода. <br>
+
+                WITH <br>
+                //назначение псевдонимов и формирование подзапросов <br>
+                псевдоним_1 AS (подзапрос_1), <br>
+                псевдоним_2 AS (подзапрос_2), <br>
+                псевдоним_3 AS (подзапрос_3), <br>
+                .... <br>
+                псевдоним_n AS (подзапрос_n) <br>
+
+                SELECT  //основной запрос <br>
+                //внутри основного запроса работают с псевдонимами, которые назначили в WITH <br>
+                FROM псевдоним_1 INNER JOIN псевдоним_2 ... <br>
+
+
+                ❗ к общим табличным выражениям нельзя обращаться после оператора WHERE. <br>
+
+            
+
+            <p><span class="red">ФУНКЦИИ ДЛЯ РАБОТЫ СО СТРОКАМИ</span> </p>
+
+            <div class="margin_left_10">
+                <p><span class="red">LENGTH().</span> <br>
+                    она возвращает длину строки — количество символов в ней. <br>
+                    SELECT LENGTH('hello !'); -> 7 //пробел тоже символ<br>
+                </p>
+                <p>
+                    <span class="red">INITCAP()</span> <br>
+                    эта функция меняет первую букву каждого слова в строке на заглавную. <br>
+                    SELECT INITCAP ('петров евгений дмитриевич'); -> Петров Евгений Дмитриевич <br>
+                </p>
+                <p>
+                    <span class="red">LOWER() и UPPER()</span> <br>
+                    функция LOWER вернёт строку со всеми символами в нижнем регистре. <br>
+                    SELECT LOWER('ВНИЗ'); -> вниз <br>
+                    обратная ей функция UPPER вернёт строку с символами в верхнем регистре. <br>
+                    SELECT UPPER('вверх'); -> ВВЕРХ <br>
+                </p>
+                <p>
+                    <span class="red">LTRIM() и RTRIM()</span> <br>
+                    функция LTRIM удаляет последние символы слева — только те, которые вы укажете. <br>
+                    SELECT LTRIM('г. Саратов', 'г.'); -> Саратов <br>
+                    чтобы убрать лишние символы справа, понадобится обратная функция — RTRIM. <br>
+                </p>
+                <p>
+                    <span class="red">REPLACE()</span> <br>
+                    с её помощью можно заменить неправильные разделители или специфические символы при выдаче данных.
+                    <br>
+                    SELECT REPLACE('Санкт/Петербург', '/', '-'); -> Санкт-Петербург <br>
+                </p>
+                <p>
+                    <span class="red">CONCAT()</span> <br>
+                    её используют для конкатенации — объединения нескольких значений в одно. <br>
+                    SELECT CONCAT('Петров', ' ', 'Евгений', ' ', 'Дмитриевич'); -> Петров Евгений Дмитриевич
+                    <br>
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+</body>
+
+</html>
